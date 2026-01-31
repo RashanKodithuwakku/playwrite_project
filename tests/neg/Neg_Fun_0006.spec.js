@@ -1,0 +1,15 @@
+import { test } from '@playwright/test';
+
+test('Neg_Fun_0006 - Convert imperative command', async ({ page }) => {
+  await page.goto('https://www.swifttranslator.com/');
+  await page.waitForLoadState('networkidle');
+
+  const textareas = page.locator('textarea');
+  await textareas.nth(0).fill('mata podi badaginnak thiyanavaa\napi monava hari kana gaman ooka gaena kathaa karamu.');
+
+  await page.waitForTimeout(2000);
+
+  await page.screenshot({
+    path: 'singlish-converter/screenshots/IT23491526_Neg_Fun_0006.png'
+  });
+});
